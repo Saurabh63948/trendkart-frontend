@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate, Link } from 'react-router-dom'; // ✅ Link added
+import { useNavigate, Link } from 'react-router-dom'; 
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -25,7 +25,8 @@ const Signup = () => {
     e.preventDefault();
     setIsLoading(true); // Set loading to true when form is submitted
     try {
-      const res = await axios.post('http://localhost:5000/api/signup', formData);
+      // Direct API URL here
+      const res = await axios.post('https://trendkart-backend.onrender.com/api/signup', formData);
       alert(res.data.message || 'Signup successful!');
       navigate('/login'); // Redirect to login page
     } catch (error) {
@@ -37,54 +38,63 @@ const Signup = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <h2>Signup</h2>
+    <div className="container mt-5" style={{ maxWidth: '500px' }}>
+      <h2 className="text-center mb-4">Signup</h2>
       <form onSubmit={handleSubmit}>
-        <input
-          className="form-control mb-3"
-          type="text"
-          name="username"
-          placeholder="Enter your name"
-          value={formData.username}
-          onChange={handleChange}
-          required
-        />
-        <input
-          className="form-control mb-3"
-          type="email"
-          name="email"
-          placeholder="Enter your email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <input
-          className="form-control mb-3"
-          type="text"
-          name="mobile"
-          placeholder="Enter your mobile number"
-          value={formData.mobile}
-          onChange={handleChange}
-          required
-        />
-        <input
-          className="form-control mb-3"
-          type="password"
-          name="password"
-          placeholder="Enter your password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-        <button className="btn btn-primary" type="submit" disabled={isLoading}>
+        <div className="mb-3">
+          <input
+            className="form-control"
+            type="text"
+            name="username"
+            placeholder="Enter your name"
+            value={formData.username}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="mb-3">
+          <input
+            className="form-control"
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="mb-3">
+          <input
+            className="form-control"
+            type="text"
+            name="mobile"
+            placeholder="Enter your mobile number"
+            value={formData.mobile}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="mb-3">
+          <input
+            className="form-control"
+            type="password"
+            name="password"
+            placeholder="Enter your password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <button className="btn btn-primary w-100" type="submit" disabled={isLoading}>
           {isLoading ? 'Signing Up...' : 'Sign Up'}
         </button>
       </form>
 
-      {/* 👇 Link to login page */}
-      <p className="mt-3">
-        Already have an account? <Link to="/login">Login</Link>
-      </p>
+      <div className="text-center mt-3">
+        <p>
+          Already have an account? <Link to="/login">Login</Link>
+        </p>
+      </div>
     </div>
   );
 };
