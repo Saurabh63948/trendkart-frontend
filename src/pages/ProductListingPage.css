@@ -1,0 +1,57 @@
+.product-listing-page {
+  font-family: 'Helvetica', sans-serif;
+}
+
+.filter-bar {
+  background: #f8f9fa;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.sidebar {
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+}
+
+.product-card {
+  border: none;
+  text-align: center;
+}
+
+.product-image-wrapper {
+  position: relative;
+}
+
+.product-tag {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: black;
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+/* App.css ya custom css file me daalein */
+.product-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.05); /* thoda zoom kare */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* thoda upar floating feel */
+  z-index: 1;
+}
+.product-card-custom {
+  transition: box-shadow 0.3s ease;
+}
+
+.product-card-custom:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.img-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
